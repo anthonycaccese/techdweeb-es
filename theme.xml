@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+theme name:    TechDweeb
+designed by:   TechDweeb
+xml by:        Anthony Caccese
+license:       creative commons CC-BY-NC-SA
+https://github.com/anthonycaccese/techdweeb-es-de
+-->
+<theme defaultView="detailed-metadata" defaultTransition="slide">
+   <formatVersion>7</formatVersion>
+
+   <!--
+   ///
+   Subset: Distribution
+   ///
+   -->
+   <subset name="distribution" displayName="Distribution">
+      <include name="batocera" displayName="Batocera/Knulli" />
+      <include name="rocknix" displayName="RockNIX" />
+      <include name="retrobat" displayName="Retrobat" />
+   </subset>
+
+   <!--
+   ///
+   System Metadata
+   ///
+   <include>./_inc/systems/metadata-global/_default.xml</include>
+   <include>./_inc/systems/metadata-global/${system.theme}.xml</include>
+   -->
+
+   <!--
+   ///
+   Variables
+   ///
+   -->
+   <variables>
+      <spacerImage>./_inc/images/space.png</spacerImage>
+      <textlistFont>./_inc/fonts/dogicapixel.ttf</textlistFont>
+      <metadataFont>./_inc/fonts/dogicapixel.ttf</metadataFont>
+      <logoFont>./_inc/fonts/dwb_title.ttf</logoFont>
+      <menuFontBold>./_inc/fonts/dwb_title.ttf</menuFontBold>
+      <menuFontRegular>./_inc/fonts/dogicapixel.ttf</menuFontRegular>
+      <systemIndicatorFont>./_inc/fonts/dogicapixel.ttf</systemIndicatorFont>
+      <distributionPath ifSubset="distribution:retrobat">~/.emulationstation/</distributionPath>
+      <distributionPath ifSubset="distribution:rocknix">~/roms/_userdata/</distributionPath>
+      <distributionPath ifSubset="distribution:batocera">/userdata/</distributionPath>
+      <themeCustomizationsPath>${distributionPath}theme-customizations/techdweeb/</themeCustomizationsPath>
+   </variables>
+
+   <!--
+   ///
+   Subset: Aspect Ratio
+   ///
+   -->
+   <subset name="aspect-ratio" displayName="Aspect Ratio">
+      <include if="{screen.ratio} == '16/9'" name="16-9-auto" displayName="Automatic" />
+      <include if="{screen.ratio} == '16/10'" name="16-10-auto" displayName="Automatic" />
+      <include if="{screen.ratio} == '4/3'" name="4-3-auto" displayName="Automatic" />
+      <include if="{screen.ratio} == '3/2'" name="3-2-auto" displayName="Automatic" />
+      <include if="{screen.ratio} == '1/1'" name="1-1-auto" displayName="Automatic" />
+      <include name="16-9" displayName="16:9" />
+      <include name="16-10" displayName="16:10" />
+      <include name="4-3" displayName="4:3" />
+      <include name="3-2" displayName="3:2" />
+      <include name="1-1" displayName="1:1" />
+   </subset>
+
+   <!--
+   ///
+   Subset: Color Scheme
+   ///
+   -->
+   <subset name="color-scheme" displayName="Color Scheme">
+      <include name="orange" displayName="Orange Stuff" />
+      <include name="purple" displayName="Purple Slime" />
+      <include name="cyan" displayName="Aqua Slush" />
+      <include name="green" displayName="Green Ooze" />
+      <include name="pink" displayName="Pink Fluff" />
+      <include name="blue" displayName="Blue Goo" />
+      <include name="red" displayName="Red Squish" />
+      <include name="grey" displayName="Grey Gunk" />
+      <include name="dmg" displayName="DMG Dungeon" />
+      <include name="custom" displayName="Custom Choas" />
+   </subset>
+   <include ifSubset="color-scheme:custom">${themeCustomizationsPath}colors.xml</include>
+   <include>./colors.xml</include>
+
+   <!--
+   ///
+   Subset: Font Size
+   ///
+   -->
+   <subset name="font-size" displayName="Font Size">
+      <include name="default" displayName="Medium" />
+      <include name="large" displayName="Large" />
+      <include name="small" displayName="Small" />
+   </subset>
+
+   <!--
+   ///
+   Subset: System Count
+   ///
+   -->
+   <subset name="system-count" displayName="System Count">
+      <include name="off" displayName="Off" />
+      <include name="on" displayName="On" />
+   </subset>
+
+   <!--
+   ///
+   Subset: Gamelist Artwork
+   ///
+   -->
+   <subset name="gamelist-list-metadata-artwork" displayName="Artwork" appliesTo="detailed-metadata">
+      <include name="screenshot-marquee" displayName="Screenshot &amp; Marquee" />
+      <include name="screenshot-cover" displayName="Screenshot &amp; Boxart" />
+   </subset>
+
+   <!--
+   ///
+   View: Screen
+   ///
+   -->
+   <view name="screen">
+      <!-- Start: Resets -->
+      <controllerActivity name="controllerActivity">
+         <visible>false</visible>
+      </controllerActivity>
+      <batteryIndicator name="batteryIndicator">
+         <visible>false</visible>
+      </batteryIndicator>
+      <text name="clock">
+         <pos>1 1</pos>
+      </text>
+      <!-- End: Resets -->
+   </view>
+
+   <!--
+   ///
+   All Views
+   ///
+   -->
+   <view name="system,basic,detailed">
+      <!-- System Indicators -->
+      <stackpanel name="system-indicators" extra="true">
+         <h ifSubset="font-size:small">0.033333333333333</h><!-- 16 -->
+         <h ifSubset="font-size:default">0.041666666666667</h><!-- 20 -->
+         <h ifSubset="font-size:large">0.05</h><!-- 24 -->
+         <pos>0 0.041666666666667</pos><!-- 0 20 -->
+         <orientation>horizontal</orientation>
+         <reverse>true</reverse>
+         <batteryText name="system-battery-text">
+            <color>${systemIndicatorColor}</color>
+            <fontPath>${systemIndicatorFont}</fontPath>
+            <fontSize ifSubset="font-size:small|default">0.033333333333333</fontSize><!-- 16 -->
+            <fontSize ifSubset="font-size:large">0.041666666666667</fontSize><!-- 20 -->
+            <lineSpacing>1</lineSpacing>
+         </batteryText>
+         <batteryIcon name="system-battery-icon">
+            <maxSize>1 1</maxSize>
+            <color>${systemIndicatorColor}</color>
+            <full>./_inc/images/battery-icon-100.svg</full>
+            <at75>./_inc/images/battery-icon-75.svg</at75>
+            <at50>./_inc/images/battery-icon-50.svg</at50>
+            <at25>./_inc/images/battery-icon-25.svg</at25>
+            <empty>./_inc/images/battery-icon-0.svg</empty>
+            <incharge>./_inc/images/battery-icon-charging.svg</incharge>
+         </batteryIcon>
+         <networkIcon name="system-network-icon">
+            <maxSize>1 1</maxSize>
+            <color>${systemIndicatorColor}</color>
+            <networkIcon>./_inc/images/network-icon-on.svg</networkIcon>
+            <planemodeIcon>./_inc/images/network-icon-off.svg</planemodeIcon>
+         </networkIcon>
+         <clock name="system-clock">
+            <color>${systemIndicatorColor}</color>
+            <fontPath>${systemIndicatorFont}</fontPath>
+            <fontSize ifSubset="font-size:small|default">0.033333333333333</fontSize><!-- 16 -->
+            <fontSize ifSubset="font-size:large">0.041666666666667</fontSize><!-- 20 -->
+            <lineSpacing>1</lineSpacing>
+         </clock>
+      </stackpanel>
+      <!-- Help -->
+      <helpsystem name="help">
+         <pos>1 1</pos>
+      </helpsystem>
+   </view>
+
+   <!--
+   ///
+   System View
+   ///
+   -->
+   <view name="system">
+      <!-- Start: Resets -->
+      <text name="systemInfo">
+         <visible>false</visible>
+         <color>00000000</color>
+      </text>
+      <!-- End: Resets -->
+      <!-- Start: System Count -->
+      <text name="system-count,system-count-single,system-count-null" extra="true" ifSubset="system-count:on">
+         <origin>0.5 0.5</origin>
+         <pos>0.5 0.78</pos>
+         <size>0 0.05</size>
+         <alignment>center</alignment>
+         <fontSize>0.041666666666667</fontSize>
+         <fontSize ifSubset="font-size:small|default">0.075</fontSize><!-- 36 -->
+         <fontSize ifSubset="font-size:large">0.1</fontSize><!-- 48 -->
+         <fontPath>${logoFont}</fontPath>
+         <color>ffffff</color>
+      </text>
+      <text name="system-count" extra="true" ifSubset="system-count:on">
+         <text>{system:total} Games</text>
+         <visible>{system:total} &gt; 1 ? 1 : 0</visible>
+      </text>
+      <text name="system-count-single" extra="true" ifSubset="system-count:on">
+         <text>1 Game</text>
+         <visible>{system:total} == 1 ? 1 : 0</visible>
+      </text>
+      <text name="system-count-null" extra="true" ifSubset="system-count:on">
+         <text>0 Games</text>
+         <visible>{system:total} == 0 ? 1 : 0</visible>
+      </text>
+      <!-- End: System Count -->
+      <image name="system-background" extra="true">
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <minSize>1 1</minSize>
+         <path>${systemBackgroundImage}</path>
+         <color>${systemBackgroundImageColor}</color>
+         <zIndex>1</zIndex>
+      </image>
+      <image name="logo">
+         <color>${systemLogoColor}</color>
+         <path>./_inc/systems/logos/${system.theme}.png</path>
+      </image>
+      <text name="logoText">
+         <fontPath>${logoFont}</fontPath>
+         <fontSize>0.15</fontSize><!-- 72 -->
+         <lineSpacing>0.75</lineSpacing>
+         <forceUppercase>true</forceUppercase>
+         <color>${systemLogoColor}</color>
+      </text>
+      <carousel name="systemcarousel">
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <size>1 1</size>
+         <logoScale>1</logoScale>
+         <color>00000000</color>
+         <maxLogoCount>1</maxLogoCount>
+         <type>horizontal</type>
+         <defaultTransition>fade & slide</defaultTransition>
+         <zIndex>2</zIndex>
+      </carousel>
+   </view>
+
+   <!--
+   ///
+   Gamelist View - Global
+   ///
+   -->
+   <view name="basic,detailed">
+      <image name="gamelist-background" extra="true">
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <minSize>1 1</minSize>
+         <path>${spacerImage}</path>
+         <color>${gamelistBackgroundColor}</color>
+         <zIndex>0</zIndex>
+      </image>
+      <image name="logo">
+         <origin>0.5 0.5</origin>
+         <color>${systemLogoColor}</color>
+         <path>./_inc/systems/logos/${system.theme}.png</path>
+         <zIndex>3</zIndex>
+      </image>
+      <text name="logoText">
+         <origin>0.5 0.5</origin>
+         <fontPath>${logoFont}</fontPath>
+         <fontSize>0.05</fontSize><!-- 24 -->
+         <lineSpacing>0.75</lineSpacing>
+         <forceUppercase>true</forceUppercase>
+         <alignment>center</alignment>
+         <color>${systemLogoColor}</color>
+         <zIndex>3</zIndex>
+      </text>
+   </view>
+
+   <!--
+   ///
+   Gamelist View - List Variants
+   ///
+   -->
+   <view name="basic,detailed">
+      <!-- Start: Resets -->
+      <text name="md_lbl_rating,md_lbl_developer,md_developer,md_lbl_publisher,md_publisher,md_lbl_playcount,md_playcount,md_lbl_lastplayed,md_lbl_players,md_players,md_lbl_releasedate,md_lbl_genre,md_genre,md_description,md_name,md_lbl_gametime,md_gametime">
+         <visible>false</visible>
+      </text>
+      <datetime name="md_releasedate,md_lastplayed">
+         <visible>false</visible>
+      </datetime>
+      <rating name="md_rating">
+         <visible>false</visible>
+      </rating>
+      <image name="md_image">
+         <visible>false</visible>
+      </image>
+      <!-- End: Resets -->
+      <image name="gamelist-game-video-fallback-image" extra="true">
+         <origin>0.5 0.5</origin>
+         <path>{game:image}</path>
+         <zIndex>1</zIndex>
+      </image>
+      <video name="gamelist-game-video" extra="true">
+         <origin>0.5 0.5</origin>
+         <delay>3</delay>
+         <path>{game:video}</path>
+         <effect>none</effect>
+         <loops>0</loops>
+         <zIndex>2</zIndex>
+         <storyboard>
+            <animation property="opacity" from="0" to="1" duration="800" mode="easeIn" />
+         </storyboard>
+      </video>
+      <image name="gamelist-textlist-background-shadow" extra="true">
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <size>1 1</size>
+         <color>${gamelistOverlayShadowColor}</color>
+         <opacity>0.2</opacity>
+         <zIndex>3</zIndex>
+      </image>
+      <image name="gamelist-textlist-background" extra="true">
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <size>1 1</size>
+         <color>${gamelistOverlayColor}</color>
+         <zIndex>3</zIndex>
+      </image>
+      <textlist name="gamelist">
+         <origin>0 0</origin>
+         <alignment>left</alignment>
+         <fontPath>${textlistFont}</fontPath>
+         <primaryColor>${gamelistTextlistPrimaryColor}</primaryColor>
+         <secondaryColor>${gamelistTextlistSecondaryColor}</secondaryColor>
+         <selectorColor>${gamelistTextlistSelectorColor}</selectorColor>
+         <selectedColor>${gamelistTextlistSelectedColor}</selectedColor>
+         <fontSize ifSubset="font-size:small">0.01875</fontSize><!-- 9 -->
+         <lines ifSubset="font-size:small">19</lines>
+         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
+         <lines ifSubset="font-size:default">17</lines>
+         <fontSize ifSubset="font-size:large">0.03541667</fontSize><!-- 17 -->
+         <lines ifSubset="font-size:large">13</lines>
+         <zIndex>4</zIndex>
+      </textlist>
+   </view>
+   <customView name="detailed-metadata" inherits="detailed" displayName="Detailed + Metadata">
+      <image name="gamelist-metadata-background" extra="true">
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <size>1 1</size>
+         <color>${gamelistBackgroundColor}</color>
+         <zIndex>2</zIndex>
+      </image>
+      <image name="gamelist-game-image" extra="true">
+         <origin>0 1</origin>
+         <path ifSubset="gamelist-list-metadata-artwork:screenshot-marquee">{game:marquee}</path>
+         <path ifSubset="gamelist-list-metadata-artwork:screenshot-cover">{game:thumbnail}</path>
+         <zIndex>4</zIndex>
+      </image>
+      <text name="gamelist-game-genre-label" extra="true">
+         <origin>0 1</origin>
+         <text>Genre</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <color>${gamelistMetadataLabelColor}</color>
+         <verticalAlignment>bottom</verticalAlignment>
+         <visible>false</visible>
+      </text>
+      <text name="gamelist-game-genre" extra="true">
+         <origin>0 0</origin>
+         <text>{game:genre}</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <color>${gamelistMetadataColor}</color>
+         <verticalAlignment>top</verticalAlignment>
+         <singleLineScroll>true</singleLineScroll>
+         <autoScroll>horizontal</autoScroll>
+         <visible>false</visible>
+      </text>
+      <text name="gamelist-game-rating-label" extra="true">
+         <origin>0 1</origin>
+         <text>Rating</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <color>${gamelistMetadataLabelColor}</color>
+         <verticalAlignment>bottom</verticalAlignment>
+         <visible>false</visible>
+      </text>
+      <rating name="md_rating">
+         <origin>0 0</origin>
+         <size>0 0.03541667</size><!-- 17 -->
+         <color>${gamelistRatingColor}</color>
+         <filledPath>./_inc/images/icon-star-filled.svg</filledPath>
+         <unfilledPath>./_inc/images/icon-star-unfilled.svg</unfilledPath>
+         <visible>false</visible>
+      </rating>
+      <text name="gamelist-game-release-date-label" extra="true">
+         <origin>0 1</origin>
+         <text>Released</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <color>${gamelistMetadataLabelColor}</color>
+         <verticalAlignment>bottom</verticalAlignment>
+         <visible>false</visible>
+      </text>
+      <text name="gamelist-game-release-date" extra="true">
+         <origin>0 0</origin>
+         <text ifSubset="font-size:small">year({game:releasedate}) + "-" + month({game:releasedate}) + "-" + day({game:releasedate})</text>
+         <text ifSubset="font-size:default">year({game:releasedate}) + "-" + month({game:releasedate}) + "-" + day({game:releasedate})</text>
+         <text ifSubset="font-size:large">year({game:releasedate}) + "-" + month({game:releasedate})</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <color>${gamelistMetadataColor}</color>
+         <verticalAlignment>top</verticalAlignment>
+         <visible>false</visible>
+      </text>
+      <text name="gamelist-game-players-label" extra="true">
+         <origin>0 1</origin>
+         <text>Players</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <color>${gamelistMetadataLabelColor}</color>
+         <verticalAlignment>bottom</verticalAlignment>
+         <visible>false</visible>
+      </text>
+      <text name="gamelist-game-players" extra="true">
+         <origin>0 0</origin>
+         <text>{game:players}</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <color>${gamelistMetadataColor}</color>
+         <verticalAlignment>top</verticalAlignment>
+         <visible>false</visible>
+      </text>
+      <text name="gamelist-game-last-played-label" extra="true">
+         <origin>0 1</origin>
+         <text>Last Played</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <color>${gamelistMetadataLabelColor}</color>
+         <verticalAlignment>bottom</verticalAlignment>
+         <visible>false</visible>
+      </text>
+      <text name="gamelist-game-last-played" extra="true">
+         <origin>0 0</origin>
+         <text>{game:gametime} > 0 ? expandseconds({game:gametime}) : "Never"</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <color>${gamelistMetadataColor}</color>
+         <verticalAlignment>top</verticalAlignment>
+         <visible>false</visible>
+      </text>
+   </customView>
+
+   <!--
+   ///
+   View: Menu
+   ///
+   -->
+   <view name="menu">
+      <menuText name="menutitle">
+         <fontPath>${menuFontBold}</fontPath>
+         <fontSize ifSubset="font-size:small">0.06</fontSize>
+         <fontSize ifSubset="font-size:default">0.08</fontSize>
+         <fontSize ifSubset="font-size:large">0.10</fontSize>
+         <color>${menuTitleColor}</color>
+      </menuText>
+      <menuText name="menufooter">
+         <fontPath>${menuFontRegular}</fontPath>
+         <fontSize ifSubset="font-size:small">0.015</fontSize>
+         <fontSize ifSubset="font-size:default">0.025</fontSize>
+         <fontSize ifSubset="font-size:large">0.04</fontSize>
+         <color>${menuFooterColor}</color>
+      </menuText>
+      <menuText name="menutext">
+         <fontPath>${menuFontRegular}</fontPath>
+         <fontSize ifSubset="font-size:small">0.025</fontSize>
+         <fontSize ifSubset="font-size:default">0.035</fontSize>
+         <fontSize ifSubset="font-size:large">0.04</fontSize>
+         <color>${menuTextColor}</color>
+         <separatorColor>${menuSeparatorColor}</separatorColor>
+         <selectedColor>${menuSelectedColor}</selectedColor>
+         <selectorColor>${menuSelectorColor}</selectorColor>
+      </menuText>
+      <menuTextSmall name="menutextsmall">
+         <fontPath>${menuFontRegular}</fontPath>
+         <fontSize ifSubset="font-size:small">0.015</fontSize>
+         <fontSize ifSubset="font-size:default">0.025</fontSize>
+         <fontSize ifSubset="font-size:large">0.035</fontSize>
+         <color>${menuTextSmallColor}</color>
+      </menuTextSmall>
+      <menuTextEdit name="menutextedit">
+         <inactive>./_inc/images/menu-textinput.png</inactive>
+         <active>./_inc/images/menu-textinput-active.png</active>
+      </menuTextEdit>
+      <menuBackground name="menubg">
+         <color>${menuBackgroundColor}</color>
+         <cornerSize>20 20</cornerSize>
+      </menuBackground>
+   </view>
+
+   <!--
+   ///
+   Include: Aspect Ratios
+   ///
+   -->
+   <include ifSubset="aspect-ratio:16-9|16-9-auto">./aspect-ratio-16-9.xml</include>
+   <include ifSubset="aspect-ratio:4-3|4-3-auto">./aspect-ratio-4-3.xml</include>
+   <include ifSubset="aspect-ratio:16-10|16-10-auto">./aspect-ratio-16-10.xml</include>
+   <include ifSubset="aspect-ratio:1-1|1-1-auto|720-square-auto">./aspect-ratio-1-1.xml</include>
+   <include ifSubset="aspect-ratio:3-2|3-2-auto">./aspect-ratio-3-2.xml</include>
+
+</theme>

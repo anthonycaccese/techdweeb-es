@@ -1,0 +1,31 @@
+<!-- 
+4:3 aspect ratio
+based on 480x480
+-->
+<theme>
+   <formatVersion>7</formatVersion>
+   
+   <!--
+   ///
+   View: All
+   ///
+   -->
+   <view name="system,basic,detailed">
+      <stackpanel name="system-indicators" extra="true">
+         <w>0.958333333333333</w><!-- 460 -->
+         <separator>10</separator>
+      </stackpanel>
+   </view>
+
+   <!--
+   ///
+   System View
+   ///
+   -->
+   <view name="system">
+      <carousel name="systemcarousel">
+         <logoSize>0.8 0.6</logoSize><!-- 448 288 -->
+      </carousel>
+   </view>
+
+</theme>

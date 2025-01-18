@@ -1,0 +1,112 @@
+<!-- 
+4:3 aspect ratio
+based on 640x480
+-->
+<theme>
+   <formatVersion>7</formatVersion>
+
+   <!--
+   ///
+   View: All
+   ///
+   -->
+   <view name="system,basic,detailed">
+      <stackpanel name="system-indicators" extra="true">
+         <w>0.96875</w><!-- 620 -->
+         <separator>0.015625</separator>
+      </stackpanel>
+   </view>
+
+   <!--
+   ///
+   System View
+   ///
+   -->
+   <view name="system">
+      <carousel name="systemcarousel">
+         <logoSize>0.7 0.6</logoSize><!-- 448 288 -->
+      </carousel>
+   </view>
+
+   <!--
+   ///
+   Gamelist View - List Variants
+   ///
+   -->
+   <view name="basic,detailed">
+      <image name="gamelist-game-video-fallback-image" extra="true">
+         <pos>0.71875 0.5</pos><!-- 460 50% -->
+         <minSize>0.5625 1</minSize><!-- 360 100% -->
+      </image>
+      <video name="gamelist-game-video" extra="true">
+         <pos>0.71875 0.5</pos><!-- 460 50% -->
+         <minSize>0.5625 1</minSize><!-- 360 100% -->
+      </video>
+      <image name="gamelist-textlist-background-shadow">
+         <path>./_inc/images/gamelist-view/4-3/list-textlist-background-shadow.svg</path>
+      </image>
+      <image name="gamelist-textlist-background">
+         <path>./_inc/images/gamelist-view/4-3/list-textlist-background.svg</path>
+      </image>
+      <image name="logo">
+         <pos>0.23125 0.1</pos><!-- 148 48 -->
+         <maxSize>0.35 0.125</maxSize><!-- 224 60 -->
+      </image>
+      <text name="logoText">
+         <pos>0.23125 0.1</pos><!-- 148 48 -->
+         <size>0.35 0.125</size><!-- 224 60 -->
+      </text>
+      <textlist name="gamelist">
+         <pos>0.0 0.2</pos><!-- 0 96 -->
+         <size>0.4375 0.8</size><!-- 280 384 -->
+         <horizontalMargin>0.0125</horizontalMargin><!-- 8 -->
+      </textlist>
+   </view>
+   <customView name="detailed-metadata">
+      <image name="gamelist-game-video-fallback-image" extra="true">
+         <pos>0.71875 0.41666667</pos><!-- 460 200 -->
+         <minSize>0.5625 0.83333333</minSize><!-- 360 400 -->
+      </image>
+      <video name="gamelist-game-video" extra="true">
+         <pos>0.71875 0.41666667</pos><!-- 460 200 -->
+         <minSize>0.5625 0.83333333</minSize><!-- 360 400 -->
+      </video>
+      <image name="gamelist-metadata-background" extra="true">
+         <path>./_inc/images/gamelist-view/4-3/list-metadata-background.svg</path>
+      </image>
+      <image name="gamelist-game-image" extra="true">
+         <pos>0.5 0.85416667</pos><!-- 320 410 -->
+         <maxSize>0.25 0.3125</maxSize><!-- 160 150 -->
+      </image>
+      <text name="gamelist-game-genre-label" extra="true">
+         <pos>0.5 0.92708333</pos><!-- 320 445 -->
+         <size>0.25 0.04166667</size><!-- 160 20 -->
+         <visible>true</visible>
+      </text>
+      <text name="gamelist-game-genre" extra="true">
+         <pos>0.5 0.9375</pos><!-- 320 450 -->
+         <size>0.25 0.04166667</size><!-- 160 20 -->
+         <visible>true</visible>
+      </text>
+      <text name="gamelist-game-rating-label" extra="true">
+         <pos>0.8125 0.82291667</pos><!-- 520 395 -->
+         <size>0.171875 0.04166667</size><!-- 110 20 -->
+         <visible>true</visible>
+      </text>
+      <rating name="md_rating">
+         <pos>0.8125 0.83333333</pos><!-- 520 400 -->
+         <visible>true</visible>
+      </rating>
+      <text name="gamelist-game-release-date-label" extra="true">
+         <pos>0.8125 0.92708333</pos><!-- 520 445 -->
+         <size>0.171875 0.04166667</size><!-- 110 20 -->
+         <visible>empty({game:releasedate})</visible>
+      </text>
+      <text name="gamelist-game-release-date" extra="true">
+         <pos>0.8125 0.9375</pos><!-- 520 450 -->
+         <size>0.171875 0.04166667</size><!-- 110 20 -->
+         <visible>empty({game:releasedate})</visible>
+      </text>
+   </customView>
+
+</theme>

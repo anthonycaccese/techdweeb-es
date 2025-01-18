@@ -1,0 +1,32 @@
+<theme>
+   <formatVersion>7</formatVersion>
+   <variables>
+      <systemLogoColor>ffffff</systemLogoColor>
+      <systemBackgroundImage>./_inc/images/system-view/grey.png</systemBackgroundImage>
+      <systemBackgroundImageColor>ffffff</systemBackgroundImageColor>
+      <systemBackgroundImageSaturation>1</systemBackgroundImageSaturation>
+      <gamelistOverlayColor>171717</gamelistOverlayColor>
+      <gamelistOverlayShadowColor>000000</gamelistOverlayShadowColor>
+      <gamelistBackgroundColor>0a0a0a</gamelistBackgroundColor>
+      <gamelistTextlistPrimaryColor>909090</gamelistTextlistPrimaryColor>
+      <gamelistTextlistSecondaryColor>909090</gamelistTextlistSecondaryColor>
+      <gamelistTextlistSelectorColor>ffffff</gamelistTextlistSelectorColor>
+      <gamelistTextlistSelectedColor>000000</gamelistTextlistSelectedColor>
+      <gamelistMetadataLabelColor>ffffff</gamelistMetadataLabelColor>
+      <gamelistMetadataColor>909090</gamelistMetadataColor>
+      <gamelistRatingColor>909090</gamelistRatingColor>
+      <menuBackgroundColor>111111</menuBackgroundColor>
+      <menuSelectorColor>eeeeee</menuSelectorColor>
+      <menuSelectedColor>181818</menuSelectedColor>
+      <menuSeparatorColor>4d4b4b</menuSeparatorColor>
+      <menuTitleColor>909090</menuTitleColor>
+      <menuFooterColor>4a4a4a</menuFooterColor>
+      <menuTextColor>999999</menuTextColor>
+      <menuTextSmallColor>4a4a4a</menuTextSmallColor>
+      <systemIndicatorColor>ffffffee</systemIndicatorColor>
+      <splashBackgroundColor>000000</splashBackgroundColor>
+      <splashTextColor>ffffff</splashTextColor>
+      <splashProgressBarColor>4a4a4a</splashProgressBarColor>
+      <splashProgressBarActiveColor>909090</splashProgressBarActiveColor>
+   </variables>
+</theme>
