@@ -84,18 +84,22 @@ based on 480x480
          <visible>{game:rating} > 0</visible>
       </text>
       <rating name="md_rating">
-         <pos>0.525 0.9375</pos><!-- 252 450 -->
+         <pos>0.525 0.9354166666666667</pos><!-- 252 449 -->
          <unfilledColor>00000000</unfilledColor>
          <visible>{game:rating} > 0</visible>
       </rating>
       <text name="gamelist-game-release-date-label" extra="true">
-         <pos>0.74375 0.92708333</pos><!-- 357 445 -->
-         <size>0.22916667 0.04166667</size><!-- 110 20 -->
+         <pos>0.7541666666666667 0.92708333</pos><!-- 362 445 -->
+         <size>0.2604166666666667 0.04166667</size><!-- 125 20 -->
          <visible>!empty({game:releaseyear})</visible>
       </text>
       <text name="gamelist-game-release-date" extra="true">
-         <pos>0.74375 0.9375</pos><!-- 357 450 -->
-         <size>0.22916667 0.04166667</size><!-- 110 20 -->
+         <text ifSubset="font-size:small|default">year({game:releasedate}) + "-" + month({game:releasedate})</text>
+         <pos>0.7541666666666667 0.9375</pos><!-- 362 450 -->
+         <size>0.2604166666666667 0.04166667</size><!-- 125 20 -->
+         <fontSize ifSubset="font-size:small">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:default">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:large">0.0354166666666667</fontSize><!-- 17 -->
          <visible>!empty({game:releaseyear})</visible>
       </text>
    </customView>

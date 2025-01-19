@@ -424,7 +424,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <origin>0 0</origin>
          <size ifSubset="font-size:small">0 0.0354166666666667</size><!-- 17 -->
          <size ifSubset="font-size:default">0 0.0354166666666667</size><!-- 17 -->
-         <size ifSubset="font-size:large">0.0395833333333333</size><!-- 19 -->
+         <size ifSubset="font-size:large">0 0.0395833333333333</size><!-- 19 -->
          <color>${gamelistRatingColor}</color>
          <filledPath>./_inc/images/icon-star-filled.svg</filledPath>
          <unfilledPath>./_inc/images/icon-star-unfilled.svg</unfilledPath>
