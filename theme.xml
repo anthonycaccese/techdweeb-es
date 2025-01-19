@@ -426,8 +426,8 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <size ifSubset="font-size:default">0 0.0354166666666667</size><!-- 17 -->
          <size ifSubset="font-size:large">0 0.0395833333333333</size><!-- 19 -->
          <color>${gamelistRatingColor}</color>
-         <filledPath>./_inc/images/icon-star-filled.svg</filledPath>
-         <unfilledPath>./_inc/images/icon-star-unfilled.svg</unfilledPath>
+         <filledPath>./_inc/images/icon-star-filled.png</filledPath>
+         <unfilledPath>./_inc/images/icon-star-unfilled.png</unfilledPath>
          <visible>false</visible>
       </rating>
       <text name="gamelist-game-release-date-label" extra="true">
