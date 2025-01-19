@@ -143,19 +143,18 @@ https://github.com/anthonycaccese/techdweeb-es-de
    <view name="system,basic,detailed">
       <!-- System Indicators -->
       <stackpanel name="system-indicators" extra="true">
-         <h ifSubset="font-size:small">0.0333333333333333</h><!-- 16 -->
-         <h ifSubset="font-size:small|default">0.0375</h><!-- 18 -->
-         <h ifSubset="font-size:large">0.04375</h><!-- 21 -->
+         <h ifSubset="font-size:small">0.0458333333333333</h><!-- 22 -->
+         <h ifSubset="font-size:default">0.05</h><!-- 24 -->
+         <h ifSubset="font-size:large">0.0583333333333333</h><!-- 28 -->
          <pos>0 0.041666666666667</pos><!-- 0 20 -->
          <orientation>horizontal</orientation>
          <reverse>true</reverse>
          <batteryText name="system-battery-text">
             <color>${systemIndicatorColor}</color>
             <fontPath>${systemIndicatorFont}</fontPath>
-            <fontSize ifSubset="font-size:small">0.0333333333333333</fontSize><!-- 15 -->
-            <fontSize ifSubset="font-size:default">0.0375</fontSize><!-- 18 -->
-            <fontSize ifSubset="font-size:large">0.04375</fontSize><!-- 21 -->
-            <lineSpacing>1</lineSpacing>
+            <fontSize ifSubset="font-size:small">0.0229166666666667</fontSize><!-- 11 -->
+            <fontSize ifSubset="font-size:default">0.03125</fontSize><!-- 15 -->
+            <fontSize ifSubset="font-size:large">0.0354166666666667</fontSize><!-- 17 -->
          </batteryText>
          <batteryIcon name="system-battery-icon">
             <maxSize>1 1</maxSize>
@@ -176,10 +175,9 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <clock name="system-clock">
             <color>${systemIndicatorColor}</color>
             <fontPath>${systemIndicatorFont}</fontPath>
-            <fontSize ifSubset="font-size:small">0.0333333333333333</fontSize><!-- 15 -->
-            <fontSize ifSubset="font-size:default">0.0375</fontSize><!-- 18 -->
-            <fontSize ifSubset="font-size:large">0.04375</fontSize><!-- 21 -->
-            <lineSpacing>1</lineSpacing>
+            <fontSize ifSubset="font-size:small">0.0229166666666667</fontSize><!-- 11 -->
+            <fontSize ifSubset="font-size:default">0.03125</fontSize><!-- 15 -->
+            <fontSize ifSubset="font-size:large">0.0354166666666667</fontSize><!-- 17 -->
          </clock>
       </stackpanel>
       <!-- Help -->
