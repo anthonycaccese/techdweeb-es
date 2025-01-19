@@ -29,7 +29,7 @@
       <text name="label">
          <origin>0.5 0.5</origin>
          <pos>0.5 0.7</pos>
-         <size>0.5 0</size>
+         <size>0.8 0</size>
          <alignment>center</alignment>
          <fontPath>./_inc/fonts/dwb_title.ttf</fontPath>
          <fontSize>0.075</fontSize>
