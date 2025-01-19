@@ -1,5 +1,34 @@
 <theme>
    <formatVersion>7</formatVersion>
+   <variables ifSubset="color-scheme:orange|custom">
+      <systemLogoColor>ffffff</systemLogoColor>
+      <systemBackgroundImage>./_inc/images/system-view/orange.png</systemBackgroundImage>
+      <systemBackgroundImageColor>ffffff</systemBackgroundImageColor>
+      <systemBackgroundImageSaturation>1</systemBackgroundImageSaturation>
+      <gamelistOverlayColor>171717</gamelistOverlayColor>
+      <gamelistOverlayShadowColor>000000</gamelistOverlayShadowColor>
+      <gamelistBackgroundColor>0a0a0a</gamelistBackgroundColor>
+      <gamelistTextlistPrimaryColor>ff7300</gamelistTextlistPrimaryColor>
+      <gamelistTextlistSecondaryColor>ff7300</gamelistTextlistSecondaryColor>
+      <gamelistTextlistSelectorColor>ffffff</gamelistTextlistSelectorColor>
+      <gamelistTextlistSelectedColor>000000</gamelistTextlistSelectedColor>
+      <gamelistMetadataLabelColor>ffffff</gamelistMetadataLabelColor>
+      <gamelistMetadataColor>ff7300</gamelistMetadataColor>
+      <gamelistRatingColor>ff7300</gamelistRatingColor>
+      <menuBackgroundColor>111111</menuBackgroundColor>
+      <menuSelectorColor>eeeeee</menuSelectorColor>
+      <menuSelectedColor>181818</menuSelectedColor>
+      <menuSeparatorColor>4d4b4b</menuSeparatorColor>
+      <menuTitleColor>ff7300</menuTitleColor>
+      <menuFooterColor>c15700</menuFooterColor>
+      <menuTextColor>999999</menuTextColor>
+      <menuTextSmallColor>c15700</menuTextSmallColor>
+      <systemIndicatorColor>ffffffee</systemIndicatorColor>
+      <splashBackgroundColor>000000</splashBackgroundColor>
+      <splashTextColor>ffffff</splashTextColor>
+      <splashProgressBarColor>c15700</splashProgressBarColor>
+      <splashProgressBarActiveColor>ff7300</splashProgressBarActiveColor>
+   </variables>
    <variables ifSubset="color-scheme:purple">
       <systemLogoColor>ffffff</systemLogoColor>
       <systemBackgroundImage>./_inc/images/system-view/purple.png</systemBackgroundImage>
@@ -231,34 +260,5 @@
       <splashTextColor>ffffff</splashTextColor>
       <splashProgressBarColor>6b7a51</splashProgressBarColor>
       <splashProgressBarActiveColor>ffe580</splashProgressBarActiveColor>
-   </variables>
-   <variables ifSubset="color-scheme:orange|custom">
-      <systemLogoColor>ffffff</systemLogoColor>
-      <systemBackgroundImage>./_inc/images/system-view/orange.png</systemBackgroundImage>
-      <systemBackgroundImageColor>ffffff</systemBackgroundImageColor>
-      <systemBackgroundImageSaturation>1</systemBackgroundImageSaturation>
-      <gamelistOverlayColor>171717</gamelistOverlayColor>
-      <gamelistOverlayShadowColor>000000</gamelistOverlayShadowColor>
-      <gamelistBackgroundColor>0a0a0a</gamelistBackgroundColor>
-      <gamelistTextlistPrimaryColor>ff7300</gamelistTextlistPrimaryColor>
-      <gamelistTextlistSecondaryColor>ff7300</gamelistTextlistSecondaryColor>
-      <gamelistTextlistSelectorColor>ffffff</gamelistTextlistSelectorColor>
-      <gamelistTextlistSelectedColor>000000</gamelistTextlistSelectedColor>
-      <gamelistMetadataLabelColor>ffffff</gamelistMetadataLabelColor>
-      <gamelistMetadataColor>ff7300</gamelistMetadataColor>
-      <gamelistRatingColor>ff7300</gamelistRatingColor>
-      <menuBackgroundColor>111111</menuBackgroundColor>
-      <menuSelectorColor>eeeeee</menuSelectorColor>
-      <menuSelectedColor>181818</menuSelectedColor>
-      <menuSeparatorColor>4d4b4b</menuSeparatorColor>
-      <menuTitleColor>ff7300</menuTitleColor>
-      <menuFooterColor>c15700</menuFooterColor>
-      <menuTextColor>999999</menuTextColor>
-      <menuTextSmallColor>c15700</menuTextSmallColor>
-      <systemIndicatorColor>ffffffee</systemIndicatorColor>
-      <splashBackgroundColor>000000</splashBackgroundColor>
-      <splashTextColor>ffffff</splashTextColor>
-      <splashProgressBarColor>c15700</splashProgressBarColor>
-      <splashProgressBarActiveColor>ff7300</splashProgressBarActiveColor>
    </variables>
 </theme>

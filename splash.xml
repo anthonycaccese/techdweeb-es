@@ -1,13 +1,6 @@
 <theme>
    <formatVersion>7</formatVersion>
-   <variables>
-      <distributionPath ifSubset="distribution:retrobat">~/.emulationstation/</distributionPath>
-      <distributionPath ifSubset="distribution:rocknix">~/roms/_userdata/</distributionPath>
-      <distributionPath ifSubset="distribution:batocera">/userdata/</distributionPath>
-      <themeCustomizationsPath>${distributionPath}theme-customizations/techdweeb/</themeCustomizationsPath>
-   </variables>
-   <include ifSubset="color-scheme:custom">${themeCustomizationsPath}colors.xml</include>
-   <include>./colors.xml</include>
+   <include>./theme.xml</include>
    <view name="splash">
       <splash name="splash">
          <backgroundColor>${splashBackgroundColor}</backgroundColor>
@@ -31,7 +24,7 @@
          <pos>0.5 0.7</pos>
          <size>0.8 0</size>
          <alignment>center</alignment>
-         <fontPath>./_inc/fonts/dwb_title.ttf</fontPath>
+         <fontPath>${logoFont}</fontPath>
          <fontSize>0.075</fontSize>
          <lineSpacing>0.75</lineSpacing>
          <color>${splashTextColor}</color>

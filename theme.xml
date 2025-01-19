@@ -82,8 +82,8 @@ https://github.com/anthonycaccese/techdweeb-es-de
       <include name="dmg" displayName="DMG Dungeon" />
       <include name="custom" displayName="Custom Choas" />
    </subset>
-   <include ifSubset="color-scheme:custom">${themeCustomizationsPath}colors.xml</include>
    <include>./colors.xml</include>
+   <include ifSubset="color-scheme:custom">${themeCustomizationsPath}colors.xml</include>
 
    <!--
    ///
