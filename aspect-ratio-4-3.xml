@@ -95,6 +95,7 @@ based on 640x480
       </text>
       <rating name="md_rating">
          <pos>0.8125 0.83333333</pos><!-- 520 400 -->
+         <unfilledColor>00000000</unfilledColor>
          <visible>{game:rating} > 0</visible>
       </rating>
       <text name="gamelist-game-release-date-label" extra="true">

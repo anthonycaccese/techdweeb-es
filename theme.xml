@@ -200,6 +200,49 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <color>00000000</color>
       </text>
       <!-- End: Resets -->
+      <image name="system-background" extra="true">
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <minSize>1 1</minSize>
+         <path>${systemBackgroundImage}</path>
+         <color>${systemBackgroundImageColor}</color>
+         <zIndex>1</zIndex>
+      </image>
+      <image name="logo">
+         <path>./_inc/systems/logos/${system.theme}.png</path>
+      </image>
+      <carousel name="systemcarousel">
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <size>1 1</size>
+         <type>horizontal</type>
+         <color>00000000</color>
+         <logoScale>1</logoScale>
+         <maxLogoCount>1</maxLogoCount>
+         <defaultTransition>fade & slide</defaultTransition>
+         <zIndex>2</zIndex>
+         <itemTemplate>
+            <container>
+               <image name="system-logo">
+                  <pos>0.5 0.5</pos>
+                  <origin>0.5 0.5</origin>
+                  <maxSize>1 1</maxSize>
+                  <path>{system:logo}</path>
+               </image>
+               <text name="system-name">
+                  <text>{system:fullName}</text>
+                  <fontPath>${logoFont}</fontPath>
+                  <fontSize>0.15</fontSize><!-- 72 -->
+                  <lineSpacing>0.75</lineSpacing>
+                  <forceUppercase>true</forceUppercase>
+                  <color>${systemLogoColor}</color>
+                  <alignment>center</alignment>
+                  <multiLine>true</multiLine>
+                  <visible>!exists({system:logo})</visible>
+               </text>
+             </container>
+          </itemTemplate>
+      </carousel>
       <!-- Start: System Count -->
       <text name="system-count,system-count-single,system-count-null" extra="true" ifSubset="system-count:on">
          <origin>0.5 0.5</origin>
@@ -225,36 +268,6 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <visible>{system:total} == 0 ? 1 : 0</visible>
       </text>
       <!-- End: System Count -->
-      <image name="system-background" extra="true">
-         <origin>0 0</origin>
-         <pos>0 0</pos>
-         <minSize>1 1</minSize>
-         <path>${systemBackgroundImage}</path>
-         <color>${systemBackgroundImageColor}</color>
-         <zIndex>1</zIndex>
-      </image>
-      <image name="logo">
-         <color>${systemLogoColor}</color>
-         <path>./_inc/systems/logos/${system.theme}.png</path>
-      </image>
-      <text name="logoText">
-         <fontPath>${logoFont}</fontPath>
-         <fontSize>0.15</fontSize><!-- 72 -->
-         <lineSpacing>0.75</lineSpacing>
-         <forceUppercase>true</forceUppercase>
-         <color>${systemLogoColor}</color>
-      </text>
-      <carousel name="systemcarousel">
-         <origin>0 0</origin>
-         <pos>0 0</pos>
-         <size>1 1</size>
-         <logoScale>1</logoScale>
-         <color>00000000</color>
-         <maxLogoCount>1</maxLogoCount>
-         <type>horizontal</type>
-         <defaultTransition>fade & slide</defaultTransition>
-         <zIndex>2</zIndex>
-      </carousel>
    </view>
 
    <!--
@@ -380,6 +393,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
          <visible>false</visible>
       </text>
       <text name="gamelist-game-genre" extra="true">
@@ -393,6 +407,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <verticalAlignment>top</verticalAlignment>
          <singleLineScroll>true</singleLineScroll>
          <autoScroll>horizontal</autoScroll>
+         <lineSpacing>1</lineSpacing>
          <visible>false</visible>
       </text>
       <text name="gamelist-game-rating-label" extra="true">
@@ -404,6 +419,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
          <visible>false</visible>
       </text>
       <rating name="md_rating">
@@ -423,6 +439,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
          <visible>false</visible>
       </text>
       <text name="gamelist-game-release-date" extra="true">
@@ -436,6 +453,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
          <color>${gamelistMetadataColor}</color>
          <verticalAlignment>top</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
          <visible>false</visible>
       </text>
       <text name="gamelist-game-players-label" extra="true">
@@ -447,6 +465,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
          <visible>false</visible>
       </text>
       <text name="gamelist-game-players" extra="true">
@@ -458,6 +477,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
          <color>${gamelistMetadataColor}</color>
          <verticalAlignment>top</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
          <visible>false</visible>
       </text>
       <text name="gamelist-game-last-played-label" extra="true">
@@ -469,6 +489,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
          <visible>false</visible>
       </text>
       <text name="gamelist-game-last-played" extra="true">
@@ -480,6 +501,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
          <color>${gamelistMetadataColor}</color>
          <verticalAlignment>top</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
          <visible>false</visible>
       </text>
    </customView>
