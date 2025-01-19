@@ -462,7 +462,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontPath>${metadataFont}</fontPath>
          <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
          <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -474,7 +474,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontPath>${metadataFont}</fontPath>
          <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
          <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
          <color>${gamelistMetadataColor}</color>
          <verticalAlignment>top</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -486,7 +486,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontPath>${metadataFont}</fontPath>
          <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
          <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -498,7 +498,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontPath>${metadataFont}</fontPath>
          <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
          <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
          <color>${gamelistMetadataColor}</color>
          <verticalAlignment>top</verticalAlignment>
          <lineSpacing>1</lineSpacing>
