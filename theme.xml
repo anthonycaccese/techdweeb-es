@@ -388,7 +388,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontPath>${metadataFont}</fontPath>
          <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
          <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -400,7 +400,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontPath>${metadataFont}</fontPath>
          <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
          <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
          <color>${gamelistMetadataColor}</color>
          <verticalAlignment>top</verticalAlignment>
          <singleLineScroll>true</singleLineScroll>
@@ -414,7 +414,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontPath>${metadataFont}</fontPath>
          <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
          <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -422,7 +422,9 @@ https://github.com/anthonycaccese/techdweeb-es-de
       </text>
       <rating name="md_rating">
          <origin>0 0</origin>
-         <size>0 0.03541667</size><!-- 17 -->
+         <size ifSubset="font-size:small">0 0.0354166666666667</size><!-- 17 -->
+         <size ifSubset="font-size:default">0 0.0354166666666667</size><!-- 17 -->
+         <size ifSubset="font-size:large">0.0395833333333333</size><!-- 19 -->
          <color>${gamelistRatingColor}</color>
          <filledPath>./_inc/images/icon-star-filled.svg</filledPath>
          <unfilledPath>./_inc/images/icon-star-unfilled.svg</unfilledPath>
@@ -434,7 +436,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontPath>${metadataFont}</fontPath>
          <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
          <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -448,7 +450,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <fontPath>${metadataFont}</fontPath>
          <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
          <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
          <color>${gamelistMetadataColor}</color>
          <verticalAlignment>top</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -512,23 +514,23 @@ https://github.com/anthonycaccese/techdweeb-es-de
    <view name="menu">
       <menuText name="menutitle">
          <fontPath>${menuFontBold}</fontPath>
-         <fontSize ifSubset="font-size:small">0.06</fontSize>
-         <fontSize ifSubset="font-size:default">0.08</fontSize>
-         <fontSize ifSubset="font-size:large">0.10</fontSize>
+         <fontSize ifSubset="font-size:small">0.0604166666666667</fontSize><!-- 29 -->
+         <fontSize ifSubset="font-size:default">0.0645833333333333</fontSize><!-- 31 -->
+         <fontSize ifSubset="font-size:large">0.06875</fontSize><!-- 33 -->
          <color>${menuTitleColor}</color>
       </menuText>
       <menuText name="menufooter">
          <fontPath>${menuFontRegular}</fontPath>
-         <fontSize ifSubset="font-size:small">0.015</fontSize>
-         <fontSize ifSubset="font-size:default">0.025</fontSize>
-         <fontSize ifSubset="font-size:large">0.04</fontSize>
+         <fontSize ifSubset="font-size:small">0.01875</fontSize><!-- 9 -->
+         <fontSize ifSubset="font-size:default">0.0229166666666667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
          <color>${menuFooterColor}</color>
       </menuText>
       <menuText name="menutext">
          <fontPath>${menuFontRegular}</fontPath>
-         <fontSize ifSubset="font-size:small">0.025</fontSize>
-         <fontSize ifSubset="font-size:default">0.035</fontSize>
-         <fontSize ifSubset="font-size:large">0.04</fontSize>
+         <fontSize ifSubset="font-size:small">0.0270833333333333</fontSize><!-- 13 -->
+         <fontSize ifSubset="font-size:default">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:large">0.0354166666666667</fontSize><!-- 17 -->
          <color>${menuTextColor}</color>
          <separatorColor>${menuSeparatorColor}</separatorColor>
          <selectedColor>${menuSelectedColor}</selectedColor>
@@ -536,9 +538,9 @@ https://github.com/anthonycaccese/techdweeb-es-de
       </menuText>
       <menuTextSmall name="menutextsmall">
          <fontPath>${menuFontRegular}</fontPath>
-         <fontSize ifSubset="font-size:small">0.015</fontSize>
-         <fontSize ifSubset="font-size:default">0.025</fontSize>
-         <fontSize ifSubset="font-size:large">0.035</fontSize>
+         <fontSize ifSubset="font-size:small">0.01875</fontSize><!-- 9 -->
+         <fontSize ifSubset="font-size:default">0.0229166666666667</fontSize><!-- 11 -->
+         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
          <color>${menuTextSmallColor}</color>
       </menuTextSmall>
       <menuTextEdit name="menutextedit">

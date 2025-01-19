@@ -96,7 +96,7 @@ based on 853x480
       <rating name="md_rating">
          <pos>0.62719812 0.83333333</pos><!-- 535 400 -->
          <unfilledColor>00000000</unfilledColor>
-         <visible>true</visible>
+         <visible>{game:rating} > 0</visible>
       </rating>
       <text name="gamelist-game-release-date-label" extra="true">
          <pos>0.62719812 0.92708333</pos><!-- 535 445 -->

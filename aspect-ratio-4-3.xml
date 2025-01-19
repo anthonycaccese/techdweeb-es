@@ -89,23 +89,23 @@ based on 640x480
          <visible>!empty({game:genre})</visible>
       </text>
       <text name="gamelist-game-rating-label" extra="true">
-         <pos>0.8125 0.82291667</pos><!-- 520 395 -->
-         <size>0.171875 0.04166667</size><!-- 110 20 -->
+         <pos>0.796875 0.82291667</pos><!-- 510 395 -->
+         <size>0.25 0.04166667</size><!-- 110 20 -->
          <visible>{game:rating} > 0</visible>
       </text>
       <rating name="md_rating">
-         <pos>0.8125 0.83333333</pos><!-- 520 400 -->
+         <pos>0.796875 0.83333333</pos><!-- 510 400 -->
          <unfilledColor>00000000</unfilledColor>
          <visible>{game:rating} > 0</visible>
       </rating>
       <text name="gamelist-game-release-date-label" extra="true">
-         <pos>0.8125 0.92708333</pos><!-- 520 445 -->
-         <size>0.171875 0.04166667</size><!-- 110 20 -->
+         <pos>0.796875 0.92708333</pos><!-- 510 445 -->
+         <size>0.25 0.04166667</size><!-- 120 20 -->
          <visible>!empty({game:releaseyear})</visible>
       </text>
       <text name="gamelist-game-release-date" extra="true">
-         <pos>0.8125 0.9375</pos><!-- 520 450 -->
-         <size>0.171875 0.04166667</size><!-- 110 20 -->
+         <pos>0.796875 0.9375</pos><!-- 510 450 -->
+         <size>0.25 0.04166667</size><!-- 120 20 -->
          <visible>!empty({game:releaseyear})</visible>
       </text>
    </customView>
