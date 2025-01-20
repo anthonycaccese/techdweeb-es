@@ -80,7 +80,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
       <include name="red" displayName="Red Squish" />
       <include name="grey" displayName="Grey Gunk" />
       <include name="dmg" displayName="DMG Dungeon" />
-      <include name="custom" displayName="Custom Choas" />
+      <include name="custom" displayName="Custom Chaos" />
    </subset>
    <include>./colors.xml</include>
    <include ifSubset="color-scheme:custom">${themeCustomizationsPath}colors.xml</include>
