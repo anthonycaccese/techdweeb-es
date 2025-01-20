@@ -368,6 +368,14 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <zIndex>4</zIndex>
       </textlist>
    </view>
+   <variables>
+      <gamelistMetadataFontSize ifSubset="font-size:large">0.03125</gamelistMetadataFontSize><!-- 15 -->
+      <gamelistMetadataFontSize ifSubset="font-size:small">0.02291667</gamelistMetadataFontSize><!-- 11 -->
+      <gamelistMetadataFontSize ifSubset="font-size:default">0.0270833333333333</gamelistMetadataFontSize><!-- 13 -->
+      <gamelistRatingSize ifSubset="font-size:large">0.0354166666666667</gamelistRatingSize><!-- 17 -->
+      <gamelistRatingSize ifSubset="font-size:small">0.0270833333333333</gamelistRatingSize><!-- 13 -->
+      <gamelistRatingSize ifSubset="font-size:default">0.03125</gamelistRatingSize><!-- 15 -->
+   </variables>
    <customView name="detailed-metadata" inherits="detailed" displayName="Detailed + Metadata">
       <image name="gamelist-metadata-background" extra="true">
          <origin>0 0</origin>
@@ -386,9 +394,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <origin>0 1</origin>
          <text>Genre</text>
          <fontPath>${metadataFont}</fontPath>
-         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -398,9 +404,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <origin>0 0</origin>
          <text>{game:genre}</text>
          <fontPath>${metadataFont}</fontPath>
-         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
          <color>${gamelistMetadataColor}</color>
          <verticalAlignment>top</verticalAlignment>
          <singleLineScroll>true</singleLineScroll>
@@ -412,9 +416,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <origin>0 1</origin>
          <text>Rating</text>
          <fontPath>${metadataFont}</fontPath>
-         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -422,9 +424,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
       </text>
       <rating name="md_rating">
          <origin>0 0</origin>
-         <size ifSubset="font-size:small">0 0.0354166666666667</size><!-- 17 -->
-         <size ifSubset="font-size:default">0 0.0354166666666667</size><!-- 17 -->
-         <size ifSubset="font-size:large">0 0.0395833333333333</size><!-- 19 -->
+         <size>${gamelistRatingSize}</size>
          <color>${gamelistRatingColor}</color>
          <filledPath>./_inc/images/icon-star-filled.png</filledPath>
          <unfilledPath>./_inc/images/icon-star-unfilled.png</unfilledPath>
@@ -434,9 +434,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <origin>0 1</origin>
          <text>Released</text>
          <fontPath>${metadataFont}</fontPath>
-         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -448,9 +446,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <text ifSubset="font-size:default">year({game:releasedate}) + "-" + month({game:releasedate}) + "-" + day({game:releasedate})</text>
          <text ifSubset="font-size:large">year({game:releasedate}) + "-" + month({game:releasedate})</text>
          <fontPath>${metadataFont}</fontPath>
-         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
          <color>${gamelistMetadataColor}</color>
          <verticalAlignment>top</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -460,9 +456,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <origin>0 1</origin>
          <text>Players</text>
          <fontPath>${metadataFont}</fontPath>
-         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -472,9 +466,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <origin>0 0</origin>
          <text>{game:players}</text>
          <fontPath>${metadataFont}</fontPath>
-         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
          <color>${gamelistMetadataColor}</color>
          <verticalAlignment>top</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -484,9 +476,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <origin>0 1</origin>
          <text>Last Played</text>
          <fontPath>${metadataFont}</fontPath>
-         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
          <color>${gamelistMetadataLabelColor}</color>
          <verticalAlignment>bottom</verticalAlignment>
          <lineSpacing>1</lineSpacing>
@@ -496,9 +486,7 @@ https://github.com/anthonycaccese/techdweeb-es-de
          <origin>0 0</origin>
          <text>{game:gametime} > 0 ? expandseconds({game:gametime}) : "Never"</text>
          <fontPath>${metadataFont}</fontPath>
-         <fontSize ifSubset="font-size:small">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:default">0.02291667</fontSize><!-- 11 -->
-         <fontSize ifSubset="font-size:large">0.0270833333333333</fontSize><!-- 13 -->
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
          <color>${gamelistMetadataColor}</color>
          <verticalAlignment>top</verticalAlignment>
          <lineSpacing>1</lineSpacing>

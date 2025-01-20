@@ -106,6 +106,7 @@ based on 640x480
       <text name="gamelist-game-release-date" extra="true">
          <pos>0.796875 0.9375</pos><!-- 510 450 -->
          <size>0.25 0.04166667</size><!-- 120 20 -->
+         <text ifSubset="font-size:default">year({game:releasedate}) + "-" + month({game:releasedate})</text>
          <visible>!empty({game:releaseyear})</visible>
       </text>
    </customView>
