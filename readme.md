@@ -58,7 +58,7 @@ TechDweeb allows customizations to color schemes without the need to edit the so
 
 You can create your own custom color scheme to use for the theme
 
-* Download this template: https://github.com/anthonycaccese/techdweeb/blob/main/resources/colors.xml
+* Download this template: https://github.com/anthonycaccese/techdweeb-es/blob/main/resources/colors.xml
 * Upload it in the path you created above and make sure its called `colors.xml`
 * Change any values in the template to the colors you prefer.
 * I tried to make the values as self explanatory as possible but if you have questions regarding which property does what please don't hesitate to ask.
