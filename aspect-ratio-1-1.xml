@@ -10,7 +10,7 @@ based on 480x480
    View: All
    ///
    -->
-   <view name="system,basic,detailed">
+   <view name="system,basic,detailed,gamecarousel">
       <stackpanel name="system-indicators" extra="true">
          <w>0.958333333333333</w><!-- 460 -->
          <separator>10</separator>
@@ -100,5 +100,27 @@ based on 480x480
          <visible>!empty({game:releaseyear})</visible>
       </text>
    </customView>
+
+   <!--
+   ///
+   Gamelist View - Carousel Variants
+   ///
+   -->
+   <view name="gamecarousel">
+      <image name="gamelist-carousel-header-shadow" extra="true">
+         <path>./_inc/images/gamelist-view/1-1/carousel-header-background-shadow.svg</path>
+      </image>
+      <image name="gamelist-carousel-header" extra="true">
+         <path>./_inc/images/gamelist-view/1-1/carousel-header-background.svg</path>
+      </image>
+      <image name="logo">
+         <pos>0.5 0.12083333</pos><!-- 50% 58 -->
+         <maxSize>0.46666667 0.16666667</maxSize><!-- 224 80 -->
+      </image>
+      <text name="logoText">
+         <pos>0.5 0.12083333</pos><!-- 50% 58 -->
+         <maxSize>0.46666667 0.16666667</maxSize><!-- 224 80 -->
+      </text>
+   </view>
 
 </theme>
