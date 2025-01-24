@@ -79,7 +79,7 @@ You can create your own custom color scheme to use for the theme
 ## **Credits**
 - All artwork designed and created by [TechDweeb](https://youtube.com/techdweeb)
 - Dogica font created by [Roberto Mocci](https://www.dafont.com/roberto-mocci.d8882)
-- DWB_Title font designed by [TechDweeb](https://youtube.com/techdweeb) and converted to `.ttf` by JWG.LLC
+- DWB_Title font created  by JWG.LLC
 - Sounds effects created by [Roetaka](https://www.youtube.com/@-roetaka)
 - XML and theme build by [Ant](https://github.com/anthonycaccese)
 
