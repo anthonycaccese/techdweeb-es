@@ -50,11 +50,13 @@ https://github.com/anthonycaccese/techdweeb-es-de
       <include if="{screen.ratio} == '4/3'" name="4-3-auto" displayName="Automatic" />
       <include if="{screen.ratio} == '3/2'" name="3-2-auto" displayName="Automatic" />
       <include if="{screen.ratio} == '1/1'" name="1-1-auto" displayName="Automatic" />
+      <include if="{screen.ratio} == '4/1'" name="rgds-auto" displayName="Automatic" />
       <include name="16-9" displayName="16:9" />
       <include name="16-10" displayName="16:10" />
       <include name="4-3" displayName="4:3" />
       <include name="3-2" displayName="3:2" />
       <include name="1-1" displayName="1:1" />
+      <include name="rgds" displayName="RG DS (Dual Screen)" />
    </subset>
 
    <!--
@@ -590,5 +592,6 @@ https://github.com/anthonycaccese/techdweeb-es-de
    <include ifSubset="aspect-ratio:16-10|16-10-auto">./aspect-ratio-16-10.xml</include>
    <include ifSubset="aspect-ratio:1-1|1-1-auto|720-square-auto">./aspect-ratio-1-1.xml</include>
    <include ifSubset="aspect-ratio:3-2|3-2-auto">./aspect-ratio-3-2.xml</include>
+   <include ifSubset="aspect-ratio:rgds|rgds-auto">./aspect-ratio-rgds.xml</include>
 
 </theme>

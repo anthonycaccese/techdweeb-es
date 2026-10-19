@@ -1,0 +1,576 @@
+<!--
+RG DS dual screen (ROCKNIXDS)
+The canvas is three 4:3 panels side by side: 1920x480 on the RG DS (3072x768 on the RG DS Plus, same fractions).
+Top screen: x 0-640. Bottom screen: x 640-1280. The third panel is never shown.
+Each panel is the theme's 640x480 layout, so a 4:3 position x maps to x/3 (top) or 640/1920 + x/3 (bottom).
+Comments give canvas px.
+-->
+<theme>
+   <formatVersion>7</formatVersion>
+
+   <!--
+   ///
+   View: All
+   ///
+   -->
+   <view name="system,basic,detailed,gamecarousel">
+      <!-- clock, network and battery on the top screen, as on a single screen -->
+      <stackpanel name="system-indicators" extra="true">
+         <w>0.3229167</w><!-- 620 -->
+         <separator>0.0052083</separator><!-- 10 -->
+      </stackpanel>
+      <!-- the button hints along the bottom screen's lower edge, in the theme's font and colours -->
+      <helpsystem name="help">
+         <origin>0 1</origin>
+         <pos>0.35 0.9833333</pos><!-- 672 472 -->
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <textColor>${gamelistMetadataLabelColor}</textColor>
+         <iconColor>${gamelistMetadataColor}</iconColor>
+      </helpsystem>
+   </view>
+
+   <!--
+   ///
+   System View
+   ///
+   -->
+   <view name="system">
+      <!-- Top screen: the artwork with the selected system's logo (the carousel is on the bottom screen) -->
+      <image name="system-background" extra="true">
+         <minSize>0.3333333 1</minSize><!-- 640 480 -->
+      </image>
+      <image name="rgds-system-logo-top" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.1666667 0.5</pos><!-- 320 240 -->
+         <maxSize>0.2333333 0.6</maxSize><!-- 448 288 -->
+         <path>{system:logo}</path>
+         <zIndex>2</zIndex>
+      </image>
+      <text name="rgds-system-name-top" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.1666667 0.5</pos><!-- 320 240 -->
+         <size>0.3 0.6</size><!-- 576 288 -->
+         <text>{system:fullName}</text>
+         <fontPath>${logoFont}</fontPath>
+         <fontSize>0.15</fontSize><!-- 72 -->
+         <lineSpacing>0.75</lineSpacing>
+         <forceUppercase>true</forceUppercase>
+         <alignment>center</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${systemLogoColor}</color>
+         <visible>!exists({system:logo})</visible>
+         <zIndex>2</zIndex>
+      </text>
+      <text name="system-count,system-count-single,system-count-null" extra="true" ifSubset="system-count:on">
+         <pos>0.1666667 0.8</pos><!-- 320 384 -->
+      </text>
+
+      <!-- Bottom screen: header (name, maker and year), the systems row, the statistics, the scroll bar and the
+           button hints. Rows: header 0-120, systems 130-270, statistics 300-385, scroll bar 408-422, hints 440-472 -->
+      <image name="rgds-system-bottom" extra="true">
+         <origin>0 0</origin>
+         <pos>0.3333333 0</pos><!-- 640 0 -->
+         <size>0.3333333 1</size><!-- 640 480 -->
+         <path>${spacerImage}</path>
+         <color>${gamelistBackgroundColor}</color>
+         <zIndex>1</zIndex>
+      </image>
+      <image name="rgds-system-bottom-header" extra="true">
+         <origin>0 0</origin>
+         <pos>0.3333333 0</pos><!-- 640 0 -->
+         <size>0.3333333 1</size><!-- 640 480 -->
+         <path>./_inc/images/gamelist-view/4-3/carousel-header-background.svg</path>
+         <color>${gamelistOverlayColor}</color>
+         <zIndex>2</zIndex>
+      </image>
+      <text name="rgds-system-name" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.5 0.0916667</pos><!-- 960 44 -->
+         <size>0.3 0.1</size><!-- 576 48 -->
+         <text>{system:fullName}</text>
+         <fontPath>${logoFont}</fontPath>
+         <fontSize>0.075</fontSize><!-- 36 -->
+         <forceUppercase>true</forceUppercase>
+         <alignment>center</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${systemLogoColor}</color>
+         <zIndex>3</zIndex>
+      </text>
+      <text name="rgds-system-maker" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.5 0.1666667</pos><!-- 960 80 -->
+         <size>0.3 0.05</size><!-- 576 24 -->
+         <text>{system:manufacturer} + ({system:releaseYear} > 0 ? " - " + {system:releaseYear} : "")</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <alignment>center</alignment>
+         <color>${gamelistMetadataColor}</color>
+         <zIndex>3</zIndex>
+      </text>
+      <!-- the systems row: three logos, the selected one larger inside a stepped pixel frame -->
+      <carousel name="systemcarousel">
+         <origin>0 0</origin>
+         <pos>0.3333333 0.2708333</pos><!-- 640 130 -->
+         <size>0.3333333 0.2916667</size><!-- 640 140 -->
+         <logoSize>0.0729167 0.2</logoSize><!-- 140 96 -->
+         <logoScale>1.25</logoScale>
+         <maxLogoCount>3</maxLogoCount>
+         <minLogoOpacity>0.45</minLogoOpacity>
+         <zIndex>3</zIndex>
+         <itemTemplate>
+            <container>
+               <image name="system-logo">
+                  <pos>0.5 0.5</pos>
+                  <origin>0.5 0.5</origin>
+                  <maxSize>1 1</maxSize>
+                  <path>{system:logo}</path>
+               </image>
+               <text name="system-name">
+                  <text>{system:fullName}</text>
+                  <fontPath>${logoFont}</fontPath>
+                  <fontSize>0.0416667</fontSize><!-- 20: the name stands in for a missing logo -->
+                  <lineSpacing>0.75</lineSpacing>
+                  <forceUppercase>true</forceUppercase>
+                  <color>${systemLogoColor}</color>
+                  <alignment>center</alignment>
+                  <multiLine>true</multiLine>
+                  <visible>!exists({system:logo})</visible>
+               </text>
+            </container>
+         </itemTemplate>
+      </carousel>
+      <image name="rgds-system-frame" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.5 0.4166667</pos><!-- 960 200 -->
+         <size>0.1041667 0.3083333</size><!-- 200 148 -->
+         <path>./_inc/images/gamelist-view/rgds/selector-frame.svg</path>
+         <color>${gamelistMetadataColor}</color>
+         <zIndex>4</zIndex>
+      </image>
+      <text name="rgds-system-games-label" extra="true">
+         <origin>0 1</origin>
+         <pos>0.3500000 0.6666667</pos><!-- 672 320 -->
+         <size>0.0781250 0.0416667</size><!-- 150 20 -->
+         <text>Games</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataLabelColor}</color>
+         <verticalAlignment>bottom</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>3</zIndex>
+      </text>
+      <text name="rgds-system-games" extra="true">
+         <origin>0 0</origin>
+         <pos>0.3500000 0.6770833</pos><!-- 672 325 -->
+         <size>0.0781250 0.0416667</size><!-- 150 20 -->
+         <text>{system:total}</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataColor}</color>
+         <verticalAlignment>top</verticalAlignment>
+         <singleLineScroll>true</singleLineScroll>
+         <autoScroll>horizontal</autoScroll>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>3</zIndex>
+      </text>
+      <text name="rgds-system-played-label" extra="true">
+         <origin>0 1</origin>
+         <pos>0.4333333 0.6666667</pos><!-- 832 320 -->
+         <size>0.0781250 0.0416667</size><!-- 150 20 -->
+         <text>Played</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataLabelColor}</color>
+         <verticalAlignment>bottom</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>3</zIndex>
+      </text>
+      <text name="rgds-system-played" extra="true">
+         <origin>0 0</origin>
+         <pos>0.4333333 0.6770833</pos><!-- 832 325 -->
+         <size>0.0781250 0.0416667</size><!-- 150 20 -->
+         <text>{system:gamesPlayed}</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataColor}</color>
+         <verticalAlignment>top</verticalAlignment>
+         <singleLineScroll>true</singleLineScroll>
+         <autoScroll>horizontal</autoScroll>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>3</zIndex>
+      </text>
+      <text name="rgds-system-favorites-label" extra="true">
+         <origin>0 1</origin>
+         <pos>0.5166667 0.6666667</pos><!-- 992 320 -->
+         <size>0.0781250 0.0416667</size><!-- 150 20 -->
+         <text>Favorites</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataLabelColor}</color>
+         <verticalAlignment>bottom</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>3</zIndex>
+      </text>
+      <text name="rgds-system-favorites" extra="true">
+         <origin>0 0</origin>
+         <pos>0.5166667 0.6770833</pos><!-- 992 325 -->
+         <size>0.0781250 0.0416667</size><!-- 150 20 -->
+         <text>{system:favorites}</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataColor}</color>
+         <verticalAlignment>top</verticalAlignment>
+         <singleLineScroll>true</singleLineScroll>
+         <autoScroll>horizontal</autoScroll>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>3</zIndex>
+      </text>
+      <text name="rgds-system-time-label" extra="true">
+         <origin>0 1</origin>
+         <pos>0.5833333 0.6666667</pos><!-- 1120 320 -->
+         <size>0.0781250 0.0416667</size><!-- 150 20 -->
+         <text>Play Time</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataLabelColor}</color>
+         <verticalAlignment>bottom</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>3</zIndex>
+      </text>
+      <text name="rgds-system-time" extra="true">
+         <origin>0 0</origin>
+         <pos>0.5833333 0.6770833</pos><!-- 1120 325 -->
+         <size>0.0666667 0.0416667</size><!-- 128 20 -->
+         <text>!empty({system:gameTime}) ? {system:gameTime} : "-"</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataColor}</color>
+         <verticalAlignment>top</verticalAlignment>
+         <singleLineScroll>true</singleLineScroll>
+         <autoScroll>horizontal</autoScroll>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>3</zIndex>
+      </text>
+      <text name="rgds-system-most-label" extra="true">
+         <origin>0 1</origin>
+         <pos>0.3500000 0.7708333</pos><!-- 672 370 -->
+         <size>0.0781250 0.0416667</size><!-- 150 20 -->
+         <text>Most Played</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataLabelColor}</color>
+         <verticalAlignment>bottom</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>3</zIndex>
+      </text>
+      <text name="rgds-system-most" extra="true">
+         <origin>0 0</origin>
+         <pos>0.3500000 0.7812500</pos><!-- 672 375 -->
+         <size>0.3000000 0.0416667</size><!-- 576 20 -->
+         <text>!empty({system:mostPlayed}) ? {system:mostPlayed} : "None yet"</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataColor}</color>
+         <verticalAlignment>top</verticalAlignment>
+         <singleLineScroll>true</singleLineScroll>
+         <autoScroll>horizontal</autoScroll>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>3</zIndex>
+      </text>
+      <!-- the scroll bar: track 672-1248 at y 408; the marker's x = 672 + (index-1)/(count-1) * (576-48) -->
+      <image name="rgds-scroll-track" extra="true">
+         <origin>0 0</origin>
+         <pos>0.35 0.8583333</pos><!-- 672 412 -->
+         <size>0.3 0.0083333</size><!-- 576 4 -->
+         <path>${spacerImage}</path>
+         <color>${gamelistTextlistSelectorColor}</color>
+         <zIndex>3</zIndex>
+      </image>
+      <image name="rgds-scroll-thumb" extra="true">
+         <path>./_inc/images/gamelist-view/rgds/scroll-thumb.svg</path>
+         <x>{system:count} &gt; 1 ? 0.35 + ({system:index} - 1) / ({system:count} - 1) * 0.275 : 0.4875</x>
+         <y>0.85</y><!-- 408 -->
+         <w>0.025</w><!-- 48 -->
+         <h>0.0333333</h><!-- 16 -->
+         <color>${gamelistMetadataColor}</color>
+         <zIndex>4</zIndex>
+      </image>
+   </view>
+
+   <!--
+   ///
+   Gamelist View - Global
+   ///
+   -->
+   <view name="basic,detailed,gamecarousel">
+      <image name="logo">
+         <pos>0.5 0.1</pos><!-- 960 48: bottom screen -->
+         <maxSize>0.2333333 0.125</maxSize><!-- 448 60 -->
+      </image>
+      <text name="logoText">
+         <pos>0.5 0.1</pos><!-- 960 48 -->
+         <size>0.2333333 0.125</size><!-- 448 60 -->
+      </text>
+   </view>
+
+   <!--
+   ///
+   Gamelist View - List Variants
+   ///
+   -->
+   <view name="basic,detailed">
+      <!-- Top screen: the video, or the screenshot until it starts -->
+      <image name="gamelist-game-video-fallback-image" extra="true">
+         <pos>0.1666667 0.5</pos><!-- 320 240 -->
+         <maxSize>0.3333333 1</maxSize><!-- 640 480 -->
+      </image>
+      <video name="gamelist-game-video" extra="true">
+         <pos>0.1666667 0.5</pos><!-- 320 240 -->
+         <maxSize>0.3333333 1</maxSize><!-- 640 480 -->
+      </video>
+      <!-- Bottom screen: the system's logo and the list, one panel wide -->
+      <image name="gamelist-textlist-background-shadow">
+         <visible>false</visible>
+      </image>
+      <image name="gamelist-textlist-background">
+         <pos>0.3333333 0</pos><!-- 640 0 -->
+         <size>0.3333333 1</size><!-- 640 480 -->
+         <path>${spacerImage}</path>
+      </image>
+      <textlist name="gamelist">
+         <pos>0.3333333 0.2</pos><!-- 640 96 -->
+         <size>0.3229167 0.7</size><!-- 620 336: the scroll bar to the right, the hints below -->
+         <horizontalMargin>0.0083333</horizontalMargin><!-- 16 -->
+      </textlist>
+      <!-- the scroll bar: track y 96-432 at x 1268; the marker's y = 96 + (index-1)/(count-1) * (336-48) -->
+      <image name="rgds-scroll-track" extra="true">
+         <origin>0 0</origin>
+         <pos>0.6604167 0.2</pos><!-- 1268 96 -->
+         <size>0.0020833 0.7</size><!-- 4 336 -->
+         <path>${spacerImage}</path>
+         <color>${gamelistTextlistSelectorColor}</color>
+         <zIndex>5</zIndex>
+      </image>
+      <image name="rgds-scroll-thumb" extra="true">
+         <path>./_inc/images/gamelist-view/rgds/scroll-thumb-v.svg</path>
+         <x>0.6583333</x><!-- 1264 -->
+         <y>{game:count} &gt; 1 ? 0.2 + ({game:index} - 1) / ({game:count} - 1) * 0.6 : 0.5</y>
+         <w>0.00625</w><!-- 12 -->
+         <h>0.1</h><!-- 48 -->
+         <color>${gamelistMetadataColor}</color>
+         <zIndex>6</zIndex>
+      </image>
+   </view>
+   <customView name="detailed-metadata">
+      <!-- Top screen: box art and video side by side, then every detail and the description below the step line -->
+      <image name="gamelist-game-image" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.0484375 0.3375</pos><!-- 93 162 -->
+         <maxSize>0.0802083 0.4166667</maxSize><!-- 154 200 -->
+      </image>
+      <image name="gamelist-game-video-fallback-image" extra="true">
+         <pos>0.2125 0.3375</pos><!-- 408 162 -->
+         <maxSize>0.2166667 0.4166667</maxSize><!-- 416 200 -->
+      </image>
+      <video name="gamelist-game-video" extra="true">
+         <pos>0.2125 0.3375</pos><!-- 408 162 -->
+         <maxSize>0.2166667 0.4166667</maxSize><!-- 416 200 -->
+      </video>
+      <image name="gamelist-metadata-background" extra="true">
+         <size>0.3333333 1</size><!-- 640 480 -->
+         <path>./_inc/images/gamelist-view/rgds/top-metadata-background.svg</path>
+         <color>${gamelistOverlayColor}</color>
+      </image>
+      <!-- three columns: x 16, 224, 432 (200 wide); rows at y 300 and 350 -->
+      <text name="gamelist-game-genre-label" extra="true">
+         <pos>0.0083333 0.6458333</pos><!-- 16 310 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <visible>true</visible>
+      </text>
+      <text name="gamelist-game-genre" extra="true">
+         <pos>0.0083333 0.65625</pos><!-- 16 315 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <text>!empty({game:genre}) ? {game:genre} : "Unknown"</text>
+         <visible>true</visible>
+      </text>
+      <text name="rgds-game-developer-label" extra="true">
+         <origin>0 1</origin>
+         <pos>0.1166667 0.6458333</pos><!-- 224 310 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <text>Developer</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataLabelColor}</color>
+         <verticalAlignment>bottom</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>4</zIndex>
+      </text>
+      <text name="rgds-game-developer" extra="true">
+         <origin>0 0</origin>
+         <pos>0.1166667 0.65625</pos><!-- 224 315 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <text>!empty({game:developer}) ? {game:developer} : "Unknown"</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataColor}</color>
+         <verticalAlignment>top</verticalAlignment>
+         <singleLineScroll>true</singleLineScroll>
+         <autoScroll>horizontal</autoScroll>
+         <lineSpacing>1</lineSpacing>
+         <zIndex>4</zIndex>
+      </text>
+      <text name="gamelist-game-release-date-label" extra="true">
+         <pos>0.225 0.6458333</pos><!-- 432 310 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <visible>true</visible>
+      </text>
+      <text name="gamelist-game-release-date" extra="true">
+         <pos>0.225 0.65625</pos><!-- 432 315 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <text>!empty({game:releaseyear}) ? year({game:releasedate}) + "-" + month({game:releasedate}) + "-" + day({game:releasedate}) : "Unknown"</text>
+         <visible>true</visible>
+      </text>
+      <text name="gamelist-game-players-label" extra="true">
+         <pos>0.0083333 0.75</pos><!-- 16 360 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <visible>true</visible>
+      </text>
+      <text name="gamelist-game-players" extra="true">
+         <pos>0.0083333 0.7604167</pos><!-- 16 365 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <text>!empty({game:players}) ? {game:players} : "Unknown"</text>
+         <visible>true</visible>
+      </text>
+      <text name="gamelist-game-rating-label" extra="true">
+         <pos>0.1166667 0.75</pos><!-- 224 360 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <visible>true</visible>
+      </text>
+      <rating name="md_rating">
+         <pos>0.1166667 0.7604167</pos><!-- 224 365 -->
+         <size>0 ${gamelistRatingSize}</size><!-- width from the height -->
+         <unfilledColor>00000000</unfilledColor>
+         <visible>{game:rating} > 0</visible>
+      </rating>
+      <text name="rgds-game-rating-none" extra="true">
+         <origin>0 0</origin>
+         <pos>0.1166667 0.7604167</pos><!-- 224 365 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <text>Not rated</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataColor}</color>
+         <verticalAlignment>top</verticalAlignment>
+         <lineSpacing>1</lineSpacing>
+         <visible>{game:rating} &gt; 0 ? 0 : 1</visible>
+         <zIndex>4</zIndex>
+      </text>
+      <text name="gamelist-game-last-played-label" extra="true">
+         <pos>0.225 0.75</pos><!-- 432 360 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <visible>true</visible>
+      </text>
+      <text name="gamelist-game-last-played" extra="true">
+         <pos>0.225 0.7604167</pos><!-- 432 365 -->
+         <size>0.1041667 0.0416667</size><!-- 200 20 -->
+         <visible>true</visible>
+      </text>
+      <!-- the description, three lines, scrolling -->
+      <text name="rgds-game-description" extra="true">
+         <origin>0 0</origin>
+         <pos>0.0083333 0.8416667</pos><!-- 16 404 -->
+         <size>0.3166667 0.105625</size><!-- 608 50.7: three 13 px lines at 1.3 -->
+         <text>{game:desc}</text>
+         <fontPath>${metadataFont}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <color>${gamelistMetadataColor}</color>
+         <alignment>left</alignment>
+         <verticalAlignment>top</verticalAlignment>
+         <lineSpacing>1.3</lineSpacing>
+         <autoScroll>vertical</autoScroll>
+         <zIndex>4</zIndex>
+      </text>
+   </customView>
+
+   <!--
+   ///
+   Gamelist View - Carousel Variants
+   ///
+   -->
+   <view name="gamecarousel">
+      <!-- Top screen: the selected game's screenshot, with its name on the step line below -->
+      <image name="rgds-carousel-game-image" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.1666667 0.4166667</pos><!-- 320 200 -->
+         <maxSize>0.3333333 0.6666667</maxSize><!-- 640 320 -->
+         <path>{game:image}</path>
+         <zIndex>1</zIndex>
+      </image>
+      <image name="rgds-carousel-name-background" extra="true">
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <size>0.3333333 1</size><!-- 640 480 -->
+         <path>./_inc/images/gamelist-view/4-3/list-metadata-background.svg</path>
+         <color>${gamelistOverlayColor}</color>
+         <zIndex>2</zIndex>
+      </image>
+      <text name="rgds-carousel-game-name" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.1666667 0.8541667</pos><!-- 320 410 -->
+         <size>0.3166667 0.15</size><!-- 608 72 -->
+         <text>{game:name}</text>
+         <fontPath>${logoFont}</fontPath>
+         <fontSize>0.075</fontSize><!-- 36 -->
+         <lineSpacing>0.9</lineSpacing>
+         <alignment>center</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${systemLogoColor}</color>
+         <zIndex>3</zIndex>
+      </text>
+
+      <!-- Bottom screen: the header and the carousel, one panel wide -->
+      <image name="gamelist-carousel-header-shadow" extra="true">
+         <pos>0.3333333 0</pos><!-- 640 0 -->
+         <size>0.3333333 1</size><!-- 640 480 -->
+         <path>./_inc/images/gamelist-view/4-3/carousel-header-background-shadow.svg</path>
+      </image>
+      <image name="gamelist-carousel-header" extra="true">
+         <pos>0.3333333 0</pos><!-- 640 0 -->
+         <size>0.3333333 1</size><!-- 640 480 -->
+         <path>./_inc/images/gamelist-view/4-3/carousel-header-background.svg</path>
+      </image>
+      <image name="logo">
+         <pos>0.5 0.12083333</pos><!-- 960 58 -->
+         <maxSize>0.2333333 0.16666667</maxSize><!-- 448 80 -->
+      </image>
+      <text name="logoText">
+         <pos>0.5 0.12083333</pos><!-- 960 58 -->
+         <maxSize>0.2333333 0.16666667</maxSize><!-- 448 80 -->
+      </text>
+      <gamecarousel name="gamecarousel">
+         <pos>0.3333333 0.1</pos><!-- 640 48 -->
+         <size>0.3333333 1</size><!-- 640 480 -->
+         <logoSize>0.1145833 0.4583333</logoSize><!-- 220 220 -->
+         <maxLogoCount>3</maxLogoCount>
+      </gamecarousel>
+      <image name="rgds-scroll-track" extra="true">
+         <origin>0 0</origin>
+         <pos>0.35 0.8583333</pos><!-- 672 412 -->
+         <size>0.3 0.0083333</size><!-- 576 4 -->
+         <path>${spacerImage}</path>
+         <color>${gamelistTextlistSelectorColor}</color>
+         <zIndex>3</zIndex>
+      </image>
+      <image name="rgds-scroll-thumb" extra="true">
+         <path>./_inc/images/gamelist-view/rgds/scroll-thumb.svg</path>
+         <x>{game:count} &gt; 1 ? 0.35 + ({game:index} - 1) / ({game:count} - 1) * 0.275 : 0.4875</x>
+         <y>0.85</y><!-- 408 -->
+         <w>0.025</w><!-- 48 -->
+         <h>0.0333333</h><!-- 16 -->
+         <color>${gamelistMetadataColor}</color>
+         <zIndex>4</zIndex>
+      </image>
+   </view>
+
+</theme>
