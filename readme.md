@@ -21,6 +21,7 @@ WIP
 - Font size options
 - Game box or logo thumbnail style
 - Aspect ratio correction for ultrawide displays
+- Dual-screen layout for the Anbernic RG DS and RG DS Plus on ROCKNIXDS
 - "That's all you get. More than you deserve, to be honest." - [TechDweeb](https://youtube.com/techdweeb)
 
 ## Theme Configuration
@@ -30,7 +31,7 @@ The following options can be changed directly from the main menu under `User Int
 | Setting | Description | Options |
 | -- | -- | -- |
 | Distribution | Used to define which folder to look in for Theme Customization files. | `Batocera/Knulli`, `RockNIX`, `RetroBat` |
-| Aspect Ratio | Enables you to select the correct aspect ratio for your screen.  This will automatically set itself so you should not need to change it but if the theme layout looks odd or spacing looks incorrect you can use this setting to make sure the aspect ratio matches your screen. | `16:9`, `16:10`, `4:3`, `3:2`, `1:1` |
+| Aspect Ratio | Enables you to select the correct aspect ratio for your screen.  This will automatically set itself so you should not need to change it but if the theme layout looks odd or spacing looks incorrect you can use this setting to make sure the aspect ratio matches your screen. | `16:9`, `16:10`, `4:3`, `3:2`, `1:1`, `RG DS (Dual Screen)` |
 | Color Scheme | Sets the color scheme that is used for the theme.  There is a set of prebuilt color schemes that you can select and an option to supply your custom color scheme (selected by choosing `Custom Chaos`). You can see details on customizations below under [Theme Customizations](#theme-customizations). | `Orange Stuff` (Default), `Purple Slime`, `Aqua Slush`, `Green Ooze`, `Pink Fluff`, `Blue Goo`, `Red Squish`, `Grey Gunk`, `DMG Dungeon`, `Custom Chaos` |
 | Font Size | Set the size for text elements throughout the theme. | `Medium` (Default), `Small`, `Large` |
 | System Count | Allows you to turn the game count display on System View On/Off | `Off` (Default), `On` |
@@ -72,6 +73,10 @@ You can create your own custom color scheme to use for the theme
     * Image Source = `Screenshot`
     * Box Source = `Box 2D`
     * Logo Source = `Wheel`
+
+### RG DS and RG DS Plus (ROCKNIXDS):
+* On ROCKNIXDS the theme spreads over both screens. The top screen gets the artwork: the system art and logo, or the game's screenshot or video with its box art, details and description. The bottom screen gets the controls: the system's name and stats, or the game list.
+* ROCKNIXDS gives a theme both screens only when the theme has a layout for them, and needs a release that looks for one. On an older release the theme stays on the top screen.
 
 ### Versions for other ES forks:
 - If you use ES-DE... then check out the version [here](https://github.com/anthonycaccese/techdweeb-es-de)
