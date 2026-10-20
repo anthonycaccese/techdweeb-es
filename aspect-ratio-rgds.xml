@@ -320,14 +320,18 @@ Comments give canvas px.
    ///
    -->
    <view name="basic,detailed">
-      <!-- Top screen: the video, or the screenshot until it starts -->
+      <!-- Top screen: the video, or the screenshot until it starts, filling the panel. ES crops to the middle of
+           minSize, so the box is two panels tall: most DS screenshots are both screens stacked, and their top
+           screen lands exactly on this panel (the bottom one hangs off the canvas). -->
       <image name="gamelist-game-video-fallback-image" extra="true">
-         <pos>0.1666667 0.5</pos><!-- 320 240 -->
-         <maxSize>0.3333333 1</maxSize><!-- 640 480 -->
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <minSize>0.3333333 2</minSize><!-- 640 960 -->
       </image>
       <video name="gamelist-game-video" extra="true">
-         <pos>0.1666667 0.5</pos><!-- 320 240 -->
-         <maxSize>0.3333333 1</maxSize><!-- 640 480 -->
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <minSize>0.3333333 2</minSize><!-- 640 960 -->
       </video>
       <!-- Bottom screen: the system's logo and the list, one panel wide -->
       <image name="gamelist-textlist-background-shadow">
@@ -363,24 +367,26 @@ Comments give canvas px.
       </image>
    </view>
    <customView name="detailed-metadata">
-      <!-- Top screen: box art and video side by side, then every detail and the description below the step line -->
+      <!-- Top screen: the video (or screenshot) fills everything above the step line, the box art stands over it,
+           then every detail and the description below the line. Same two-panel box as the list views, moved up
+           96 px so the middle of a stacked screenshot's top screen sits in the middle of the 288 px above the line. -->
       <image name="gamelist-game-image" extra="true">
          <origin>0.5 0.5</origin>
-         <pos>0.0484375 0.3375</pos><!-- 93 162 -->
-         <maxSize>0.0802083 0.4166667</maxSize><!-- 154 200 -->
+         <pos>0.0833333 0.2916667</pos><!-- 160 140 -->
+         <maxSize>0.15 0.55</maxSize><!-- 288 264: a DS box (512x464) comes out 288x261, inside the line -->
+         <zIndex>5</zIndex>
       </image>
       <image name="gamelist-game-video-fallback-image" extra="true">
-         <pos>0.2125 0.3375</pos><!-- 408 162 -->
-         <maxSize>0.2166667 0.4166667</maxSize><!-- 416 200 -->
+         <pos>0 -0.2</pos><!-- 0 -96 -->
       </image>
       <video name="gamelist-game-video" extra="true">
-         <pos>0.2125 0.3375</pos><!-- 408 162 -->
-         <maxSize>0.2166667 0.4166667</maxSize><!-- 416 200 -->
+         <pos>0 -0.2</pos><!-- 0 -96 -->
       </video>
       <image name="gamelist-metadata-background" extra="true">
          <size>0.3333333 1</size><!-- 640 480 -->
          <path>./_inc/images/gamelist-view/rgds/top-metadata-background.svg</path>
          <color>${gamelistOverlayColor}</color>
+         <zIndex>3</zIndex>
       </image>
       <!-- three columns: x 16, 224, 432 (200 wide); rows at y 300 and 350 -->
       <text name="gamelist-game-genre-label" extra="true">
